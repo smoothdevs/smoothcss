@@ -13,6 +13,7 @@
     "next-offline": "^5.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "reflexbox": "^4.0.6",
     "styled-components": "^5.0.0"
   },
   "husky": {

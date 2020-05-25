@@ -1,15 +1,21 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 
-const App = ({ Component, pageProps }: AppProps) => {
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
+  colors: {
+    primary: '#0fbcf9',
+  },
+};
+
+export default ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>SmoothCSS</title>
       </Head>
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 };
-
-export default App;
