@@ -6,5 +6,5 @@ const Title = styled.h1`
 `;
 
 export default function Home() {
-  return <Title>SmoothCSS</Title>;
+  return <Title>SmoothCSS[dot]com</Title>;
 }
