@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import Toolbar from '../components/Toolbar';
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 50px;
 `;
 
-export default function Home() {
-  return <Title>SmoothCSS[dot]com</Title>;
-}
+const Home: React.FC = () => {
+  return (
+    <>
+      <Toolbar />
+      <Title>SmoothCSS[dot]com</Title>
+    </>
+  );
+};
+export default Home;
