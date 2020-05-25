@@ -17,3 +17,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           msg: 'Deployed :ferris_wheel: at ${{ steps.now-deployment.outputs.preview-url }}'
+      - name: LightHouse Audit
+        uses: jakejarvis/lighthouse-action@master
+        with:
+          url: ${{ steps.now-deployment.outputs.preview-url }}
+      - name: Upload results as an artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: report
+          path: './report'
