@@ -1,16 +1,28 @@
-name: deploy website
-on:
-  push:
-    branches:
-      - master
+name: lint
+
+on: [push, pull_request]
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: amondnet/now-deployment@v2
+
+      - uses: actions/setup-node@v1
         with:
-          zeit-token: ${{ secrets.ZEIT_TOKEN }}
-          now-org-id: ${{ secrets.ORG_ID}}
-          now-args: "--prod"
-          now-project-id: ${{ secrets.PROJECT_ID}}
+          node-version: '14.x'
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install
+        run: |
+          npm ci
+
+      - name: Lint
+        run: |
+          npm run lint:js

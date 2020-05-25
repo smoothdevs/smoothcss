@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:js:fix": "npm run lint:js -- --quiet --fix",
+    "lint:js": "npx eslint '**/*.{jsx,ts,tsx}'"
   },
   "dependencies": {
     "next": "latest",
@@ -13,12 +15,31 @@
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.0.1",
+    "@typescript-eslint/parser": "^3.0.1",
+    "eslint": "^7.1.0",
     "@types/node": "12.0.12",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "@types/styled-components": "5.0.1",
     "babel-plugin-styled-components": "^1.10.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
     "typescript": "3.5.2"
   },
   "license": "ISC"
