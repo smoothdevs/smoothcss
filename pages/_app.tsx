@@ -9,7 +9,7 @@ const theme = {
   },
 };
 
-export default ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -18,4 +18,4 @@ export default ({ Component, pageProps }: AppProps) => {
       <Component {...pageProps} />
     </ThemeProvider>
   );
-};
+}
