@@ -16,4 +16,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: ${{ steps.now-deployment.outputs.preview-url }}
+          msg: 'Deployed :ferris_wheel: at ${{ steps.now-deployment.outputs.preview-url }}'
