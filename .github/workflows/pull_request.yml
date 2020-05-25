@@ -1,4 +1,4 @@
-name: deploy pull request
+name: pull request checks
 on: [pull_request]
 jobs:
   deploy:
