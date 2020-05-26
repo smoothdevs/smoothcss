@@ -7,6 +7,14 @@ const blocks = [
     name: 'Input',
     path: 'input',
   },
+  {
+    name: 'Card',
+    path: 'card',
+  },
+  {
+    name: 'Tag',
+    path: 'tag',
+  },
 ];
 
 export default blocks;

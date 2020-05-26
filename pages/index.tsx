@@ -10,10 +10,10 @@ const Home: React.FC = () => {
   return (
     <>
       <TitleBar />
-      <Flex p='30px'>
+      <Flex p={['5px', '30px']} flexDirection={['column', 'row']} flexWrap='wrap' textAlign='center'>
         {blocks.map((block) => (
           <Link href='/components/[component]' as={`/components/${block.path}`} key={block.path}>
-            <Box width={1 / 3} m='10px'>
+            <Box width={[1, 1 / 3]} p={['10px']}>
               <Card>{block.name}</Card>
             </Box>
           </Link>
