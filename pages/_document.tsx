@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-          <link href='https://fonts.googleapis.com/css?family=Work+Sans&display=swap' rel='stylesheet' />
+          <link href='https://fonts.googleapis.com/css2?family=Work+Sans&display=swap' rel='stylesheet' />
           <link rel='icon' type='image/png' href='/logo-16.png' />
           <link rel='manifest' href='/manifest.json' />
         </Head>
