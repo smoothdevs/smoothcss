@@ -105,6 +105,7 @@ const Reset = createGlobalStyle`
   }
   body {
     line-height: 1;
+    background: #F5F5F5;
   }
   ol,
   ul {
@@ -124,6 +125,9 @@ const Reset = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  a {
+    text-decoration: none;
   }
 `;
 
