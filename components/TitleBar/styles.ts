@@ -7,7 +7,8 @@ const TitleBarStyled = styled(Flex)`
   background: #ffffff;
 `;
 
-const Title = styled.span`
+const Title = styled.h1`
+  display: inline;
   font-size: 32px;
   font-weight: 500;
   ${({ theme: { colors } }) => css`
