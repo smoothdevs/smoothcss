@@ -11,10 +11,10 @@ const Home: React.FC = () => {
     <>
       <TitleBar />
       <Flex p={['5px', '30px']} flexDirection={['column', 'row']} flexWrap='wrap' textAlign='center'>
-        {blocks.map((block) => (
-          <Link href='/components/[component]' as={`/components/${block.path}`} key={block.path}>
+        {Object.entries(blocks).map((block) => (
+          <Link href='/components/[component]' as={`/components/${block[0]}`} key={block[0]}>
             <Box width={[1, 1 / 3]} p={['10px']}>
-              <Card>{block.name}</Card>
+              <Card>{block[1].name}</Card>
             </Box>
           </Link>
         ))}

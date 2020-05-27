@@ -128,6 +128,11 @@ const Reset = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: inherit;
+  }
+  label {
+    font-size: 22px;
+    line-height: 30px;
   }
 `;
 

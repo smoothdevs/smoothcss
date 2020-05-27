@@ -1,20 +1,18 @@
-const blocks = [
-  {
+import buttonPresets from './button';
+import inputPresets from './input';
+import { Blocks } from './types';
+
+const blocks: Blocks = {
+  button: {
     name: 'Button',
-    path: 'button',
+    id: 'button',
+    presets: buttonPresets,
   },
-  {
+  input: {
     name: 'Input',
-    path: 'input',
+    id: 'input',
+    presets: inputPresets,
   },
-  {
-    name: 'Card',
-    path: 'card',
-  },
-  {
-    name: 'Tag',
-    path: 'tag',
-  },
-];
+};
 
 export default blocks;
