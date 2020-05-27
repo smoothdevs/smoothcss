@@ -11,6 +11,7 @@ const smooth: Preset = {
       'color': '#ffffff',
       'font-size': '32px',
       'box-shadow': '3px 3px 8px #dedede',
+      'border': 'none',
     },
     hover: {
       background: '#27ae60',

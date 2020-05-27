@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Flex, Box } from 'reflexbox';
 
 import TitleBar from '../../components/TitleBar';
 import FAB from '../../components/FAB';
-import Preview from '../../components/Preview';
 import ControlPanel from '../../components/ControlPanel';
 import blocks from '../../blocks';
 import PlaygroundStore from '../../stores/playground';
+
+const Preview = dynamic(import('../../components/Preview'), { ssr: false });
 
 const Component: React.FC = () => {
   const router = useRouter();

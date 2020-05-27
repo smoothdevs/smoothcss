@@ -6,7 +6,7 @@ import PlaygroundStore from '../../../stores/playground';
 const Button: React.FC = ({ children }) => {
   const playground = PlaygroundStore.useContainer();
 
-  const Component = styled.div`
+  const Component = styled.button`
     ${playground.styles.root}
     &:hover {
       ${playground.styles.hover}
