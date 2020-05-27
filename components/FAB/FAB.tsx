@@ -16,7 +16,7 @@ const FAB: React.FC<FABProps> = ({ component }: FABProps) => {
       <HamburgerMenu />
       <FABDropdown onMouseOver={() => setOpen(true)} onMouseLeave={() => setOpen(false)} open={open}>
         {Object.entries(blocks).map((block) => (
-          <FABElement key={block[0]} active={block[0] === component}>
+          <FABElement key={block[0]} active={block[0] === component} onClick={() => setOpen(false)}>
             <Link href='/components/[component]' as={`/components/${block[0]}`}>
               {block[1].name}
             </Link>
