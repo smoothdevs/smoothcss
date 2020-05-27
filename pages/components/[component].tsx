@@ -34,10 +34,10 @@ const Component: React.FC = () => {
         <Box width={[1, 1 / 10]}>
           <FAB component={component as string} />
         </Box>
-        <Box width={6 / 10}>
+        <Box width={[1, 6 / 10]} my={[10, 0]}>
           <Preview />
         </Box>
-        <Box width={3 / 10}>
+        <Box width={[1, 3 / 10]} minHeight={['70vh', '85vh']}>
           <ControlPanel />
         </Box>
       </Flex>

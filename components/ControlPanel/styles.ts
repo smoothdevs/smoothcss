@@ -5,8 +5,9 @@ const ControlPanelStyled = styled.div`
   ${shadows}
   background: #ffffff;
   padding: 20px;
-  min-height: 80vh;
-  max-height: 80vh;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 `;
 
 export { ControlPanelStyled };
