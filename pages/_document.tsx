@@ -8,7 +8,7 @@ import { BlocksSet, PresetSet } from '../blocks/types';
 
 let keywords = META.keywords;
 
-const generate = (key) => {
+const generate = (key: string) => {
   return [
     `${key} css component`,
     `${key} component styles`,
