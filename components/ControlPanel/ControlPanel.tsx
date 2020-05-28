@@ -6,6 +6,7 @@ import { ControlPanelStyled } from './styles';
 import PlaygroundStore from '../../stores/playground';
 import PanelTitle from '../PanelTitle';
 import Input from '../Input';
+import Select from '../Select';
 
 const ControlPanel: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
@@ -16,8 +17,32 @@ const ControlPanel: React.FC = () => {
     playground.setStyles(set(temp, name, value));
   };
 
+  const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    playground.setPreset(e.target.value);
+  };
+
+  if (!playground.presets) return null;
+
   return (
     <ControlPanelStyled>
+      <Flex mb={10}>
+        <Box width={1 / 2}>
+          <label>Presets</label>
+        </Box>
+        <Box width={1 / 2}>
+          <Select onChange={handlePresetChange} value={playground.preset}>
+            {Object.entries(playground.presets).map((i) => {
+              const key = i[0];
+              const value = i[1];
+              return (
+                <option key={key} value={key}>
+                  {value.name}
+                </option>
+              );
+            })}
+          </Select>
+        </Box>
+      </Flex>
       {Object.entries(playground.styles).map((i) => {
         const style = i[0];
         const sheet = i[1];
