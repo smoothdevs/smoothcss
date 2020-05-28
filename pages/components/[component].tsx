@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Flex, Box } from 'reflexbox';
 
-import TitleBar from '../../components/TitleBar';
 import FAB from '../../components/FAB';
 import ControlPanel from '../../components/ControlPanel';
 import blocks from '../../blocks';
@@ -29,20 +28,17 @@ const Component: React.FC = () => {
   }, [component, playground.preset]);
 
   return (
-    <>
-      <TitleBar />
-      <Flex p={20} flexWrap='wrap'>
-        <Box width={[1, 1 / 10]}>
-          <FAB component={component as string} />
-        </Box>
-        <Box width={[1, 6 / 10]} my={[10, 0]}>
-          <Preview />
-        </Box>
-        <Box width={[1, 3 / 10]} minHeight={['70vh', '85vh']}>
-          <ControlPanel />
-        </Box>
-      </Flex>
-    </>
+    <Flex p={20} flexWrap='wrap'>
+      <Box width={[1, 1 / 10]}>
+        <FAB component={component as string} />
+      </Box>
+      <Box width={[1, 6 / 10]} my={[10, 0]}>
+        <Preview />
+      </Box>
+      <Box width={[1, 3 / 10]} minHeight={['70vh', '85vh']}>
+        <ControlPanel />
+      </Box>
+    </Flex>
   );
 };
 
