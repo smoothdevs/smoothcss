@@ -7,9 +7,13 @@ const Input: React.FC = ({ children }) => {
   const playground = PlaygroundStore.useContainer();
 
   const Component = styled.input`
-    ${playground.styles.root}
+    ${() => css`
+      ${playground.styles.root};
+    `}
     &:hover {
-      ${playground.styles.hover}
+      ${() => css`
+        ${playground.styles.hover};
+      `}
     }
   `;
 
