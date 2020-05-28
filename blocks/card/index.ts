@@ -1,8 +1,8 @@
 import smooth from './smooth';
 import material from './material';
-import { PresetSet } from '../types';
+import { PresetArray } from '../types';
 
-const presets: PresetSet = {
+const presets: PresetArray = {
   smooth,
   material,
 };

@@ -4,6 +4,7 @@ import { GiHamburgerMenu as HamburgerMenu } from 'react-icons/gi';
 
 import { FABStyled, FABDropdown, FABElement } from './styles';
 import blocks from '../../blocks';
+import { PresetSet } from '../../blocks/types';
 import PlaygroundStore from '../../stores/playground';
 
 interface FABProps {
@@ -16,7 +17,7 @@ const FAB: React.FC<FABProps> = ({ component }: FABProps) => {
 
   const handleChange = () => {
     setOpen(false);
-    playground.setPreset('smooth');
+    playground.setPreset(PresetSet.SMOOTH);
   };
 
   return (

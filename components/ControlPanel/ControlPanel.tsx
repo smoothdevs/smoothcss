@@ -7,6 +7,7 @@ import PlaygroundStore from '../../stores/playground';
 import PanelTitle from '../PanelTitle';
 import Input from '../Input';
 import Select from '../Select';
+import { PresetSet } from '../../blocks/types';
 
 const ControlPanel: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
@@ -18,7 +19,7 @@ const ControlPanel: React.FC = () => {
   };
 
   const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    playground.setPreset(e.target.value);
+    playground.setPreset(e.target.value as PresetSet);
   };
 
   if (!playground.presets) return null;
@@ -34,6 +35,7 @@ const ControlPanel: React.FC = () => {
             {Object.entries(playground.presets).map((i) => {
               const key = i[0];
               const value = i[1];
+              if (!value) return null;
               return (
                 <option key={key} value={key}>
                   {value.name}

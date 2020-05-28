@@ -11,6 +11,8 @@ import GlobalStyles from '../components/GlobalStyles';
 import TitleBar from '../components/TitleBar';
 import PlaygroundStore from '../stores/playground';
 
+import META from '../configs/meta';
+
 Router.events.on('routeChangeStart', () => Progress.start());
 Router.events.on('routeChangeComplete', () => Progress.done());
 Router.events.on('routeChangeError', () => Progress.done());
@@ -20,7 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={theme}>
       <PlaygroundStore.Provider>
         <Head>
-          <title>SmoothCSS</title>
+          <title>{META.title}</title>
         </Head>
         <GlobalStyles />
         <TitleBar />

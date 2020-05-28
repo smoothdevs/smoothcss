@@ -7,6 +7,7 @@ import FAB from '../../components/FAB';
 import ControlPanel from '../../components/ControlPanel';
 import blocks from '../../blocks';
 import PlaygroundStore from '../../stores/playground';
+import { BlocksSet } from '../../blocks/types';
 
 const Preview = dynamic(import('../../components/Preview'), { ssr: false });
 
@@ -17,13 +18,13 @@ const Component: React.FC = () => {
 
   if (!component) return null;
 
-  const componentBlock = blocks[component as string];
+  const componentBlock = blocks[component as BlocksSet];
 
   const presets = componentBlock.presets;
 
   useEffect(() => {
     playground.setComponent(componentBlock.name);
-    playground.setStyles(presets[playground.preset].styles);
+    playground.setStyles(presets[playground.preset]!.styles);
     playground.setPresets(presets);
   }, [component, playground.preset]);
 

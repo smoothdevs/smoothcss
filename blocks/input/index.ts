@@ -1,7 +1,7 @@
 import smooth from './smooth';
-import { PresetSet } from '../types';
+import { PresetArray } from '../types';
 
-const presets: PresetSet = {
+const presets: PresetArray = {
   smooth,
 };
 

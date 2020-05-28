@@ -11,13 +11,19 @@ export interface Styles {
   hover: StyleSheet;
 }
 
-export interface Blocks {
-  [index: string]: {
+export enum BlocksSet {
+  BUTTON = 'button',
+  INPUT = 'input',
+  CARD = 'card',
+}
+
+export type Blocks = {
+  [index in BlocksSet]: {
     name: string;
     id: string;
-    presets: PresetSet;
+    presets: PresetArray;
   };
-}
+};
 
 export interface Preset {
   id: string;
@@ -25,6 +31,11 @@ export interface Preset {
   styles: Styles;
 }
 
-export interface PresetSet {
-  [index: string]: Preset;
+export enum PresetSet {
+  SMOOTH = 'smooth',
+  MATERIAL = 'material',
 }
+
+export type PresetArray = {
+  [index in PresetSet]?: Preset;
+};
