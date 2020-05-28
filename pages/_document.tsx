@@ -34,6 +34,17 @@ export default class MyDocument extends Document {
           <link href='https://fonts.googleapis.com/css2?family=Work+Sans&display=swap' rel='stylesheet' />
           <link rel='icon' type='image/png' href='/logo-16.png' />
           <link rel='manifest' href='/manifest.json' />
+          <script async={true} src='https://www.googletagmanager.com/gtag/js?id=UA-167921266-1' />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-167921266-1');`,
+            }}
+          />
         </Head>
         <body>
           <Main />
