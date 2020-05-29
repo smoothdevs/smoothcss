@@ -48,33 +48,36 @@ const ControlPanel: React.FC = () => {
       {Object.entries(playground.styles).map((i) => {
         const style = i[0];
         const sheet = i[1];
-        return (
-          <div key={style}>
-            <Box>
-              <PanelTitle>{style}</PanelTitle>
-            </Box>
-            <Box>
-              {Object.entries(sheet).map((k) => {
-                const key = k[0];
-                const value = k[1];
-                return (
-                  <Flex key={key} my={10}>
-                    <Box width={1 / 2}>
-                      <label>{key}</label>
-                    </Box>
-                    <Box width={1 / 2}>
-                      <Input
-                        value={value as string}
-                        name={`${style}.${key}`}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-                      />
-                    </Box>
-                  </Flex>
-                );
-              })}
-            </Box>
-          </div>
-        );
+        if (Object.keys(sheet).length > 0) {
+          return (
+            <div key={style}>
+              <Box>
+                <PanelTitle>{style}</PanelTitle>
+              </Box>
+              <Box>
+                {Object.entries(sheet).map((k) => {
+                  const key = k[0];
+                  const value = k[1];
+                  return (
+                    <Flex key={key} my={10}>
+                      <Box width={1 / 2}>
+                        <label>{key}</label>
+                      </Box>
+                      <Box width={1 / 2}>
+                        <Input
+                          value={value as string}
+                          name={`${style}.${key}`}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
+                        />
+                      </Box>
+                    </Flex>
+                  );
+                })}
+              </Box>
+            </div>
+          );
+        }
+        return null;
       })}
     </ControlPanelStyled>
   );
