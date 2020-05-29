@@ -5,7 +5,7 @@ const material_outlined: Preset = {
   name: 'Material UI Outlined',
   styles: {
     root: {
-      'background': '#ffffff',
+      'background': 'transparent',
       'padding': '5px 15px',
       'color': '#1976d2',
       'font-weight': '500',
@@ -17,6 +17,7 @@ const material_outlined: Preset = {
     hover: {
       border: '1px solid #1976d2',
     },
+    active: {},
   },
 };
 

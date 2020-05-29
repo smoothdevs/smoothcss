@@ -17,6 +17,11 @@ const Button: React.FC = ({ children }) => {
         ${playground.styles.hover};
       `}
     }
+    &:active {
+      ${() => css`
+        ${playground.styles.active};
+      `}
+    }
   `;
 
   return <Component>{children}</Component>;

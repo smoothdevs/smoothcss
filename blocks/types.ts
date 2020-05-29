@@ -9,6 +9,7 @@ export interface StyleSheet {
 export interface Styles {
   root: StyleSheet;
   hover: StyleSheet;
+  active: StyleSheet;
 }
 
 export enum BlocksSet {

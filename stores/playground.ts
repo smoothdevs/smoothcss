@@ -6,7 +6,7 @@ import { Styles, BlocksSet, PresetArray, PresetSet } from '../blocks/types';
 const Playground = () => {
   const [component, setComponent] = useState<string>(BlocksSet.BUTTON);
   const [preset, setPreset] = useState<PresetSet>(PresetSet.SMOOTH);
-  const [styles, setStyles] = useState<Styles>({ root: {}, hover: {} });
+  const [styles, setStyles] = useState<Styles>({ root: {}, hover: {}, active: {} });
   const [presets, setPresets] = useState<PresetArray>();
 
   return {

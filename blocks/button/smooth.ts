@@ -14,6 +14,7 @@ const smooth: Preset = {
     hover: {
       background: '#27ae60',
     },
+    active: {},
   },
 };
 

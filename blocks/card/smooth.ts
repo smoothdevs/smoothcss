@@ -12,6 +12,7 @@ const smooth: Preset = {
     hover: {
       'box-shadow': '3px 5px 12px #dedede',
     },
+    active: {},
   },
 };
 

@@ -9,6 +9,7 @@ const smooth: Preset = {
       'font-size': '16px',
     },
     hover: {},
+    active: {},
   },
 };
 

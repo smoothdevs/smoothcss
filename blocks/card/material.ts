@@ -11,6 +11,7 @@ const material: Preset = {
       'border-radius': '4px',
     },
     hover: {},
+    active: {},
   },
 };
 
