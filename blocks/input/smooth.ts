@@ -2,7 +2,7 @@ import { Preset } from '../types';
 
 const smooth: Preset = {
   id: 'smooth',
-  name: 'smooth',
+  name: 'Smooth',
   styles: {
     root: {
       'padding': '4px',
