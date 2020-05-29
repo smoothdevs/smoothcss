@@ -37,6 +37,7 @@ export enum PresetSet {
   SMOOTH = 'smooth',
   MATERIAL = 'material',
   MATERIAL_OUTLINED = 'material_outlined',
+  ANTD = 'antd',
 }
 
 export type PresetArray = {
