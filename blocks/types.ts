@@ -16,6 +16,7 @@ export enum BlocksSet {
   BUTTON = 'button',
   INPUT = 'input',
   CARD = 'card',
+  FAB = 'fab',
 }
 
 export type Blocks = {

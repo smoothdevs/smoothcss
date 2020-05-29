@@ -3,7 +3,7 @@ import { Flex, Box } from 'reflexbox';
 
 import PlaygroundStore from '../../stores/playground';
 
-import { Button, Input, Card } from './components';
+import { Button, Input, Card, FAB } from './components';
 
 const Preview: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
@@ -19,6 +19,9 @@ const Preview: React.FC = () => {
       break;
     case 'Card':
       Component = Card;
+      break;
+    case 'Floating Action Button':
+      Component = FAB;
       break;
     default:
       Component = Button;

@@ -1,6 +1,7 @@
 import buttonPresets from './button';
 import inputPresets from './input';
 import cardPresets from './card';
+import fabPresets from './fab';
 import { Blocks } from './types';
 
 const blocks: Blocks = {
@@ -18,6 +19,11 @@ const blocks: Blocks = {
     name: 'Card',
     id: 'card',
     presets: cardPresets,
+  },
+  fab: {
+    name: 'Floating Action Button',
+    id: 'fab',
+    presets: fabPresets,
   },
 };
 

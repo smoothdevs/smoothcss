@@ -4,9 +4,9 @@ import shadows from '../../mixins/shadows';
 const FABStyled = styled.div<{ open: boolean }>`
   ${shadows}
   border-radius: 50%;
-  height: 48px;
-  width: 48px;
-  line-height: 48px;
+  height: 56px;
+  width: 56px;
+  line-height: 56px;
   text-align: center;
   font-size: 26px;
   cursor: pointer;

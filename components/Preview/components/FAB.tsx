@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import PlaygroundStore from '../../../stores/playground';
 
-const Button: React.FC = ({ children }) => {
+const FAB: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
 
   const Component = styled.button`
@@ -25,7 +25,7 @@ const Button: React.FC = ({ children }) => {
     }
   `;
 
-  return <Component>{children}</Component>;
+  return <Component>F</Component>;
 };
 
-export default Button;
+export default FAB;
