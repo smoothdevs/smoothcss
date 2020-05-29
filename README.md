@@ -1,3 +1,9 @@
-<div style="text-align:center"><a href="https://smoothcss.xyz/?ref=github"><img src="https://smoothcss.xyz/logo-256.png" alt="smoothcss" /><h1>SmoothCSS</h1></a></div>
+<h1 align="center">
+  <a href="https://smoothcss.xyz/?ref=github">
+    <img src="https://smoothcss.xyz/logo-256.png" alt="smoothcss" />
+    <br />
+    SmoothCSS
+  </a>
+</h1>
 
-CSS Playground for common UI components and presets.
+<h4 align="center">CSS Playground for common UI components and presets.</h4>
