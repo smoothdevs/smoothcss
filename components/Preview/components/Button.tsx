@@ -10,6 +10,8 @@ const Button: React.FC = ({ children }) => {
     ${() => css`
       ${playground.styles.root};
     `}
+    font-size: 32px;
+    cursor: pointer;
     &:hover {
       ${() => css`
         ${playground.styles.hover};

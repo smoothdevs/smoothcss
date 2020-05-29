@@ -7,9 +7,7 @@ const smooth: Preset = {
     root: {
       'background': '#2ecc71',
       'padding': '10px',
-      'cursor': 'pointer',
       'color': '#ffffff',
-      'font-size': '32px',
       'box-shadow': '3px 3px 8px #dedede',
       'border': 'none',
     },

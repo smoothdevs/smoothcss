@@ -7,9 +7,7 @@ const material_outlined: Preset = {
     root: {
       'background': '#ffffff',
       'padding': '5px 15px',
-      'cursor': 'pointer',
       'color': '#1976d2',
-      'font-size': '32px',
       'font-weight': '500',
       'line-height': '1.75',
       'border-radius': '4px',
