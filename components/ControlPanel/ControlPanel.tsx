@@ -27,7 +27,7 @@ const ControlPanel: React.FC = () => {
 
   return (
     <ControlPanelStyled>
-      <Flex mb={10}>
+      <Flex mb={20}>
         <Box width={1 / 2}>
           <Label>Presets</Label>
         </Box>
@@ -51,7 +51,7 @@ const ControlPanel: React.FC = () => {
         const sheet = i[1];
         if (Object.keys(sheet).length > 0) {
           return (
-            <div key={style}>
+            <Flex key={style} flexDirection='column' mb={20}>
               <Box>
                 <PanelTitle>{style}</PanelTitle>
               </Box>
@@ -75,7 +75,7 @@ const ControlPanel: React.FC = () => {
                   );
                 })}
               </Box>
-            </div>
+            </Flex>
           );
         }
         return null;
