@@ -8,6 +8,7 @@ import PanelTitle from '../PanelTitle';
 import Input from '../Input';
 import Select from '../Select';
 import { PresetSet } from '../../blocks/types';
+import Label from '../Label';
 
 const ControlPanel: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
@@ -28,7 +29,7 @@ const ControlPanel: React.FC = () => {
     <ControlPanelStyled>
       <Flex mb={10}>
         <Box width={1 / 2}>
-          <label>Presets</label>
+          <Label>Presets</Label>
         </Box>
         <Box width={1 / 2}>
           <Select onChange={handlePresetChange} value={playground.preset}>
@@ -61,7 +62,7 @@ const ControlPanel: React.FC = () => {
                   return (
                     <Flex key={key} my={10}>
                       <Box width={1 / 2}>
-                        <label>{key}</label>
+                        <Label>{key.split('-').join(' ')}</Label>
                       </Box>
                       <Box width={1 / 2}>
                         <Input
