@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flex, Box } from 'reflexbox';
 import Editor from 'react-simple-code-editor';
 import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
@@ -8,12 +8,28 @@ import PlaygroundStore from '@stores/playground';
 import Select from '../Select';
 import { PresetSet } from '@blocks/types';
 import Label from '../Label';
-
+import copyToClipboard from '@utils/copyUtil';
+import Toast from '@components/Toast';
 const ControlPanel: React.FC = () => {
+  const [toastProps, setToastProps] = useState({ open: false, content: '' });
   const playground = PlaygroundStore.useContainer();
 
   const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     playground.setPreset(e.target.value as PresetSet);
+  };
+
+  const showToastMessage = (message) => {
+    setToastProps({ open: true, content: message });
+    window.setTimeout(() => {
+      setToastProps({ open: false, content: message });
+    }, 1000);
+  };
+
+  const handleCopy = (e) => {
+    const { styles, html } = playground;
+    const buttonId = e.target.id;
+    copyToClipboard(buttonId === 'copy-html' ? html : styles);
+    showToastMessage('📋 Copied!');
   };
 
   const highlightCode = (code: string, language: Language) => (
@@ -72,6 +88,15 @@ const ControlPanel: React.FC = () => {
           onValueChange={(code) => playground.setStyles(code)}
         />
       </Box>
+      <Box>
+        <button id='copy-html' onClick={handleCopy}>
+          Copy HTML
+        </button>
+        <button id='copy-css' onClick={handleCopy}>
+          Copy CSS
+        </button>
+      </Box>
+      <Toast open={toastProps.open} content={toastProps.content} />
     </ControlPanelStyled>
   );
 };
