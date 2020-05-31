@@ -2,9 +2,9 @@ import React from 'react';
 import { Flex, Box } from 'reflexbox';
 import Editor from 'react-simple-code-editor';
 import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/vsDark';
+import theme from 'prism-react-renderer/themes/github';
 
-import { ControlPanelStyled } from './styles';
+import { ControlPanelStyled, Pre, Line, LineNo, LineContent } from './styles';
 import PlaygroundStore from '../../stores/playground';
 import Select from '../Select';
 import { PresetSet } from '../../blocks/types';
@@ -20,15 +20,18 @@ const ControlPanel: React.FC = () => {
   const highlightCode = (code: string, language: Language) => (
     <Highlight {...defaultProps} Prism={Prism} code={code} theme={theme} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
+        <Pre className={className} style={style}>
           {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })} key={i}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} key={key} />
-              ))}
-            </div>
+            <Line key={i} {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              <LineContent>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </LineContent>
+            </Line>
           ))}
-        </pre>
+        </Pre>
       )}
     </Highlight>
   );
@@ -56,7 +59,7 @@ const ControlPanel: React.FC = () => {
           </Select>
         </Box>
       </Flex>
-      <Box mb={20}>
+      <Box mb={20} maxHeight='70px'>
         <Editor
           value={playground.html}
           highlight={(code) => highlightCode(code, 'jsx')}

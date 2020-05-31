@@ -25,8 +25,8 @@ const Component: React.FC = () => {
 
   useEffect(() => {
     playground.setComponent(componentBlock.name);
-    playground.setHtml(presets[playground.preset]!.html);
-    playground.setStyles(presets[playground.preset]!.styles);
+    playground.setHtml(presets[playground.preset]!.html.trim());
+    playground.setStyles(presets[playground.preset]!.styles.trim());
     playground.setPresets(presets);
   }, [component, playground.preset]);
 

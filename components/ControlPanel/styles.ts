@@ -10,4 +10,27 @@ const ControlPanelStyled = styled.div`
   max-height: 100%;
 `;
 
-export { ControlPanelStyled };
+const Pre = styled.pre`
+  text-align: left;
+  margin: 0;
+  padding: 0.5em;
+  overflow: scroll;
+`;
+
+const Line = styled.div`
+  display: table-row;
+`;
+
+const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+`;
+
+const LineContent = styled.span`
+  display: table-cell;
+`;
+
+export { ControlPanelStyled, Pre, Line, LineNo, LineContent };
