@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { createContainer } from 'unstated-next';
 
-import { Styles, BlocksSet, PresetArray, PresetSet } from '../blocks/types';
+import { BlocksSet, PresetArray, PresetSet } from '../blocks/types';
 
 const Playground = () => {
   const [component, setComponent] = useState<string>(BlocksSet.BUTTON);
   const [preset, setPreset] = useState<PresetSet>(PresetSet.SMOOTH);
-  const [styles, setStyles] = useState<Styles>({ root: {}, hover: {}, active: {} });
+  const [html, setHtml] = useState<string>(``);
+  const [styles, setStyles] = useState<string>(``);
   const [presets, setPresets] = useState<PresetArray>();
 
   return {
@@ -18,6 +19,8 @@ const Playground = () => {
     setComponent,
     presets,
     setPresets,
+    html,
+    setHtml,
   };
 };
 

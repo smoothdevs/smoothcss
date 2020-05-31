@@ -1,23 +1,14 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { Props } from './types';
 
-import PlaygroundStore from '../../../stores/playground';
-
-const Input: React.FC = ({ children }) => {
-  const playground = PlaygroundStore.useContainer();
-
-  const Component = styled.input`
-    ${() => css`
-      ${playground.styles.root};
-    `}
-    &:hover {
-      ${() => css`
-        ${playground.styles.hover};
-      `}
+const Input: React.FC<Props> = ({ children, className }: Props) => {
+  const Component = styled.div`
+    * {
     }
   `;
 
-  return <Component placeholder={children as string} />;
+  return <Component className={className}>{children}</Component>;
 };
 
 export default Input;

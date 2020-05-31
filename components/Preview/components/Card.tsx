@@ -1,30 +1,22 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import PlaygroundStore from '../../../stores/playground';
+import { Props } from './types';
 
-const Card: React.FC = ({ children }) => {
-  const playground = PlaygroundStore.useContainer();
-
+const Card: React.FC<Props> = ({ children, className }: Props) => {
   const Component = styled.div`
-    ${() => css`
-      ${playground.styles.root};
+    * {
+      width: 200px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 200px;
-      height: 200px;
       color: #000;
       font-size: 28px;
-    `}
-    &:hover {
-      ${() => css`
-        ${playground.styles.hover};
-      `}
     }
   `;
 
-  return <Component>{children}</Component>;
+  return <Component className={className}>{children}</Component>;
 };
 
 export default Card;

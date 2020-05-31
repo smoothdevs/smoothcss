@@ -1,17 +1,3 @@
-import * as CSS from 'csstype';
-
-export type CSSProperties = CSS.Properties<string | number>;
-
-export interface StyleSheet {
-  [key: string]: StyleSheet | string | number | undefined;
-}
-
-export interface Styles {
-  root: StyleSheet;
-  hover: StyleSheet;
-  active: StyleSheet;
-}
-
 export enum BlocksSet {
   BUTTON = 'button',
   INPUT = 'input',
@@ -30,7 +16,8 @@ export type Blocks = {
 export interface Preset {
   id: string;
   name: string;
-  styles: Styles;
+  html: string;
+  styles: string;
 }
 
 export enum PresetSet {

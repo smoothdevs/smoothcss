@@ -1,18 +1,24 @@
 import { Preset } from '../types';
 
+const html = `
+<div class="card">
+    Button
+</div>`;
+
+const css = `
+.card {
+    background: #ffffff;
+    color: rgba(0,0,0,.65);
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+}
+`;
+
 const antd: Preset = {
   id: 'antd',
   name: 'Ant Design',
-  styles: {
-    root: {
-      'background': '#ffffff',
-      'border': '1px solid #f0f0f0',
-      'border-radius': '2px',
-      'color': 'rgba(0,0,0,.65)',
-    },
-    hover: {},
-    active: {},
-  },
+  html: html,
+  styles: css,
 };
 
 export default antd;

@@ -1,31 +1,17 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { Props } from './types';
 
-import PlaygroundStore from '../../../stores/playground';
-
-const FAB: React.FC = () => {
-  const playground = PlaygroundStore.useContainer();
-
-  const Component = styled.button`
-    font-size: 32px;
-    cursor: pointer;
-    border: none;
-    ${() => css`
-      ${playground.styles.root};
-    `}
-    &:hover {
-      ${() => css`
-        ${playground.styles.hover};
-      `}
-    }
-    &:active {
-      ${() => css`
-        ${playground.styles.active};
-      `}
+const FAB: React.FC<Props> = ({ children, className }: Props) => {
+  const Component = styled.div`
+    * {
+      font-size: 24px;
+      cursor: pointer;
+      border: none;
     }
   `;
 
-  return <Component>F</Component>;
+  return <Component className={className}>{children}</Component>;
 };
 
 export default FAB;

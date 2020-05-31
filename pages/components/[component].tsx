@@ -4,12 +4,13 @@ import { useRouter } from 'next/router';
 import { Flex, Box } from 'reflexbox';
 
 import FAB from '../../components/FAB';
-import ControlPanel from '../../components/ControlPanel';
+// import ControlPanel from '../../components/ControlPanel';
 import blocks from '../../blocks';
 import PlaygroundStore from '../../stores/playground';
 import { BlocksSet } from '../../blocks/types';
 
 const Preview = dynamic(import('../../components/Preview'), { ssr: false });
+const ControlPanel = dynamic(import('../../components/ControlPanel'), { ssr: false });
 
 const Component: React.FC = () => {
   const router = useRouter();
@@ -24,6 +25,7 @@ const Component: React.FC = () => {
 
   useEffect(() => {
     playground.setComponent(componentBlock.name);
+    playground.setHtml(presets[playground.preset]!.html);
     playground.setStyles(presets[playground.preset]!.styles);
     playground.setPresets(presets);
   }, [component, playground.preset]);

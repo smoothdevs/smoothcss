@@ -1,11 +1,11 @@
 import React from 'react';
 import { Flex, Box } from 'reflexbox';
-import set from 'lodash/set';
+import Editor from 'react-simple-code-editor';
+import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/vsDark';
 
 import { ControlPanelStyled } from './styles';
 import PlaygroundStore from '../../stores/playground';
-import PanelTitle from '../PanelTitle';
-import Input from '../Input';
 import Select from '../Select';
 import { PresetSet } from '../../blocks/types';
 import Label from '../Label';
@@ -13,15 +13,25 @@ import Label from '../Label';
 const ControlPanel: React.FC = () => {
   const playground = PlaygroundStore.useContainer();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    const temp = { ...playground.styles };
-    playground.setStyles(set(temp, name, value));
-  };
-
   const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     playground.setPreset(e.target.value as PresetSet);
   };
+
+  const highlightCode = (code: string, language: Language) => (
+    <Highlight {...defaultProps} Prism={Prism} code={code} theme={theme} language={language}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })} key={i}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} key={key} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
 
   if (!playground.presets) return null;
 
@@ -46,40 +56,20 @@ const ControlPanel: React.FC = () => {
           </Select>
         </Box>
       </Flex>
-      {Object.entries(playground.styles).map((i) => {
-        const style = i[0];
-        const sheet = i[1];
-        if (Object.keys(sheet).length > 0) {
-          return (
-            <Flex key={style} flexDirection='column' mb={20}>
-              <Box>
-                <PanelTitle>{style}</PanelTitle>
-              </Box>
-              <Box>
-                {Object.entries(sheet).map((k) => {
-                  const key = k[0];
-                  const value = k[1];
-                  return (
-                    <Flex key={key} my={10}>
-                      <Box width={1 / 2}>
-                        <Label>{key.split('-').join(' ')}</Label>
-                      </Box>
-                      <Box width={1 / 2}>
-                        <Input
-                          value={value as string}
-                          name={`${style}.${key}`}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-                        />
-                      </Box>
-                    </Flex>
-                  );
-                })}
-              </Box>
-            </Flex>
-          );
-        }
-        return null;
-      })}
+      <Box mb={20}>
+        <Editor
+          value={playground.html}
+          highlight={(code) => highlightCode(code, 'jsx')}
+          onValueChange={(code) => playground.setHtml(code)}
+        />
+      </Box>
+      <Box>
+        <Editor
+          value={playground.styles}
+          highlight={(code) => highlightCode(code, 'css')}
+          onValueChange={(code) => playground.setStyles(code)}
+        />
+      </Box>
     </ControlPanelStyled>
   );
 };

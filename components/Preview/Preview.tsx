@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Box } from 'reflexbox';
+import { css } from 'emotion';
 
 import PlaygroundStore from '../../stores/playground';
 
@@ -30,7 +31,13 @@ const Preview: React.FC = () => {
   return (
     <Flex height='100%' justifyContent='center' alignItems='center'>
       <Box>
-        <Component>{component}</Component>
+        <Component
+          className={css`
+            ${playground.styles}
+          `}
+        >
+          <div dangerouslySetInnerHTML={{ __html: playground.html }}></div>
+        </Component>
       </Box>
     </Flex>
   );

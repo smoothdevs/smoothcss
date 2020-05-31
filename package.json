@@ -1,5 +1,5 @@
 {
-  "name": "with-typescript-styled-components",
+  "name": "SmoothCSS",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -10,15 +10,17 @@
     "postinstall": "npx install-types"
   },
   "dependencies": {
-    "csstype": "^2.6.10",
-    "lodash": "^4.17.15",
+    "@types/node": "^14.0.6",
+    "emotion": "^10.0.27",
     "next": "^9.4.0",
     "next-offline": "^5.0.2",
     "next-seo": "^4.5.0",
     "nprogress": "^0.2.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^3.10.0",
+    "react-simple-code-editor": "^0.11.0",
     "reflexbox": "^4.0.6",
     "styled-components": "^5.0.0",
     "unstated-next": "^1.1.0"
@@ -36,8 +38,7 @@
   "devDependencies": {
     "@types/eslint": "^6.8.1",
     "@types/eslint-plugin-prettier": "^3.1.0",
-    "@types/lodash": "^4.14.153",
-    "@types/node": "12.0.12",
+    "@types/next-seo": "^1.10.0",
     "@types/nprogress": "^0.2.0",
     "@types/prettier": "^2.0.1",
     "@types/react": "16.8.23",
