@@ -2,9 +2,9 @@ import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/do
 import { ServerStyleSheet } from 'styled-components';
 import { NextSeo } from 'next-seo';
 
-import META from '../configs/meta';
-import THEME from '../configs/theme';
-import { BlocksSet, PresetSet } from '../blocks/types';
+import META from '@configs/meta';
+import THEME from '@configs/theme';
+import { BlocksSet, PresetSet } from '@blocks/types';
 
 let keywords = META.keywords;
 

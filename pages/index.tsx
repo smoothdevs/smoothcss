@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Flex, Box } from 'reflexbox';
 
-import Card from '../components/Card';
-import blocks from '../blocks';
+import Card from '@components/Card';
+import blocks from '@blocks/index';
 
 const Home: React.FC = () => {
   return (

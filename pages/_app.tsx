@@ -4,14 +4,14 @@ import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
 import Progress from 'nprogress';
 
-import '../css/nprogress.css';
+import '@css/nprogress.css';
 
-import theme from '../configs/theme';
-import GlobalStyles from '../components/GlobalStyles';
-import TitleBar from '../components/TitleBar';
-import PlaygroundStore from '../stores/playground';
+import theme from '@configs/theme';
+import GlobalStyles from '@components/GlobalStyles';
+import TitleBar from '@components/TitleBar';
+import PlaygroundStore from '@stores/playground';
 
-import META from '../configs/meta';
+import META from '@configs/meta';
 
 Router.events.on('routeChangeStart', () => Progress.start());
 Router.events.on('routeChangeComplete', () => Progress.done());

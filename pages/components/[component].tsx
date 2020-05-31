@@ -3,14 +3,14 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Flex, Box } from 'reflexbox';
 
-import FAB from '../../components/FAB';
+import FAB from '@components/FAB';
 // import ControlPanel from '../../components/ControlPanel';
-import blocks from '../../blocks';
-import PlaygroundStore from '../../stores/playground';
-import { BlocksSet } from '../../blocks/types';
+import blocks from '@blocks/index';
+import PlaygroundStore from '@stores/playground';
+import { BlocksSet } from '@blocks/types';
 
-const Preview = dynamic(import('../../components/Preview'), { ssr: false });
-const ControlPanel = dynamic(import('../../components/ControlPanel'), { ssr: false });
+const Preview = dynamic(import('@components/Preview'), { ssr: false });
+const ControlPanel = dynamic(import('@components/ControlPanel'), { ssr: false });
 
 const Component: React.FC = () => {
   const router = useRouter();
