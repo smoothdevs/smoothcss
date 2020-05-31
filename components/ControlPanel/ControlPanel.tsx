@@ -3,11 +3,10 @@ import { Flex, Box } from 'reflexbox';
 import Editor from 'react-simple-code-editor';
 import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/github';
-
 import { ControlPanelStyled, Pre, Line, LineNo, LineContent } from './styles';
-import PlaygroundStore from '../../stores/playground';
+import PlaygroundStore from '@stores/playground';
 import Select from '../Select';
-import { PresetSet } from '../../blocks/types';
+import { PresetSet } from '@blocks/types';
 import Label from '../Label';
 
 const ControlPanel: React.FC = () => {

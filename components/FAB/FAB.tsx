@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { GiHamburgerMenu as HamburgerMenu } from 'react-icons/gi';
 
 import { FABStyled, FABDropdown, FABElement } from './styles';
-import blocks from '../../blocks';
-import { PresetSet } from '../../blocks/types';
-import PlaygroundStore from '../../stores/playground';
+import blocks from '@blocks/index';
+import { PresetSet } from '@blocks/types';
+import PlaygroundStore from '@stores/playground';
 
 interface FABProps {
   component: string;
