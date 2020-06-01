@@ -10,6 +10,7 @@ import { PresetSet } from '@blocks/types';
 import Label from '../Label';
 import copyToClipboard from '@utils/copyUtil';
 import Toast from '@components/Toast';
+
 const ControlPanel: React.FC = () => {
   const [toastProps, setToastProps] = useState({ open: false, content: '' });
   const playground = PlaygroundStore.useContainer();
@@ -18,17 +19,17 @@ const ControlPanel: React.FC = () => {
     playground.setPreset(e.target.value as PresetSet);
   };
 
-  const showToastMessage = (message) => {
+  const showToastMessage = (message: string) => {
     setToastProps({ open: true, content: message });
     window.setTimeout(() => {
       setToastProps({ open: false, content: message });
     }, 1000);
   };
 
-  const handleCopy = (e) => {
+  const handleCopy = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { styles, html } = playground;
-    const buttonId = e.target.id;
-    copyToClipboard(buttonId === 'copy-html' ? html : styles);
+    const { id } = e.target as HTMLButtonElement;
+    copyToClipboard(id === 'copy-html' ? html : styles);
     showToastMessage('📋 Copied!');
   };
 
