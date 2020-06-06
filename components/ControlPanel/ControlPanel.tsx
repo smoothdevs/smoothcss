@@ -3,6 +3,8 @@ import { Flex, Box } from 'reflexbox';
 import Editor from 'react-simple-code-editor';
 import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/github';
+import { MdContentCopy } from 'react-icons/md';
+
 import { ControlPanelStyled, Pre, Line, LineNo, LineContent } from './styles';
 import PlaygroundStore from '@stores/playground';
 import Select from '../Select';
@@ -75,27 +77,33 @@ const ControlPanel: React.FC = () => {
           </Select>
         </Box>
       </Flex>
-      <Box mb={20} maxHeight='70px'>
-        <Editor
-          value={playground.html}
-          highlight={(code) => highlightCode(code, 'jsx')}
-          onValueChange={(code) => playground.setHtml(code)}
-        />
+      <Box mb={20} maxHeight='110px'>
+        <Box maxHeight='80px'>
+          <Editor
+            value={playground.html}
+            highlight={(code) => highlightCode(code, 'jsx')}
+            onValueChange={(code) => playground.setHtml(code)}
+          />
+        </Box>
+        <Box mt={10}>
+          <button id='copy-html' onClick={handleCopy}>
+            <MdContentCopy />
+            Copy HTML
+          </button>
+        </Box>
       </Box>
-      <Box>
+      <Box mt={20}>
         <Editor
           value={playground.styles}
           highlight={(code) => highlightCode(code, 'css')}
           onValueChange={(code) => playground.setStyles(code)}
         />
-      </Box>
-      <Box>
-        <button id='copy-html' onClick={handleCopy}>
-          Copy HTML
-        </button>
-        <button id='copy-css' onClick={handleCopy}>
-          Copy CSS
-        </button>
+        <Box mt={10}>
+          <button id='copy-css' onClick={handleCopy}>
+            <MdContentCopy />
+            Copy CSS
+          </button>
+        </Box>
       </Box>
       <Toast open={toastProps.open} content={toastProps.content} />
     </ControlPanelStyled>
