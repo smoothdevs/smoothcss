@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import shadows from '../../mixins/shadows';
 
 const ControlPanelStyled = styled.div`
@@ -10,27 +10,27 @@ const ControlPanelStyled = styled.div`
   max-height: 100%;
 `;
 
-const Pre = styled.pre`
-  text-align: left;
-  margin: 0;
-  padding: 0.5em;
-  overflow: scroll;
+const StyledEditor = styled.div<{ html: boolean }>`
+  overflow: auto;
+
+  flex-basis: 50%;
+  width: 100%;
+  max-width: 100%;
+
+  height: 180px;
+  max-height: 180px;
+
+  ${({ html }) => css`
+    ${html &&
+    css`
+      height: 68px;
+      max-height: 68px;
+    `}
+  `}
+
+  * > textarea:focus {
+    outline: none;
+  }
 `;
 
-const Line = styled.div`
-  display: table-row;
-`;
-
-const LineNo = styled.span`
-  display: table-cell;
-  text-align: right;
-  padding-right: 1em;
-  user-select: none;
-  opacity: 0.5;
-`;
-
-const LineContent = styled.span`
-  display: table-cell;
-`;
-
-export { ControlPanelStyled, Pre, Line, LineNo, LineContent };
+export { ControlPanelStyled, StyledEditor };

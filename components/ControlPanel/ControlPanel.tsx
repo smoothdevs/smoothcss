@@ -5,7 +5,7 @@ import Highlight, { Prism, Language } from 'prism-react-renderer';
 import { MdContentCopy } from 'react-icons/md';
 import theme from './theme';
 
-import { ControlPanelStyled } from './styles';
+import { ControlPanelStyled, StyledEditor } from './styles';
 import PlaygroundStore from '@stores/playground';
 import Select from '../Select';
 import { PresetSet } from '@blocks/types';
@@ -16,6 +16,11 @@ import Toast from '@components/Toast';
 const ControlPanel: React.FC = () => {
   const [toastProps, setToastProps] = useState({ open: false, content: '' });
   const playground = PlaygroundStore.useContainer();
+
+  const EditorStyles = {
+    background: '#000000',
+    caretColor: '#ffffff',
+  };
 
   const handlePresetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     playground.setPreset(e.target.value as PresetSet);
@@ -78,16 +83,15 @@ const ControlPanel: React.FC = () => {
       </Flex>
       <Box mb={20} maxHeight='110px'>
         <Box maxHeight='80px'>
-          <Editor
-            value={playground.html}
-            padding={10}
-            highlight={(code) => highlightCode(code, 'jsx')}
-            onValueChange={(code) => playground.setHtml(code)}
-            style={{
-              background: '#000000',
-              caretColor: '#ffffff',
-            }}
-          />
+          <StyledEditor html={true}>
+            <Editor
+              value={playground.html}
+              padding={10}
+              highlight={(code) => highlightCode(code, 'jsx')}
+              onValueChange={(code) => playground.setHtml(code)}
+              style={EditorStyles}
+            />
+          </StyledEditor>
         </Box>
         <Box mt={10}>
           <button id='copy-html' onClick={handleCopy}>
@@ -97,16 +101,15 @@ const ControlPanel: React.FC = () => {
         </Box>
       </Box>
       <Box mt={20}>
-        <Editor
-          value={playground.styles}
-          padding={10}
-          highlight={(code) => highlightCode(code, 'css')}
-          onValueChange={(code) => playground.setStyles(code)}
-          style={{
-            background: '#000000',
-            caretColor: '#ffffff',
-          }}
-        />
+        <StyledEditor html={false}>
+          <Editor
+            value={playground.styles}
+            padding={10}
+            highlight={(code) => highlightCode(code, 'css')}
+            onValueChange={(code) => playground.setStyles(code)}
+            style={EditorStyles}
+          />
+        </StyledEditor>
         <Box mt={10}>
           <button id='copy-css' onClick={handleCopy}>
             <MdContentCopy />
