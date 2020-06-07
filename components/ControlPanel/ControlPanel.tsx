@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Flex, Box } from 'reflexbox';
 import Editor from 'react-simple-code-editor';
-import Highlight, { Prism, defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/github';
+import Highlight, { Prism, Language } from 'prism-react-renderer';
 import { MdContentCopy } from 'react-icons/md';
+import theme from './theme';
 
-import { ControlPanelStyled, Pre, Line, LineNo, LineContent } from './styles';
+import { ControlPanelStyled } from './styles';
 import PlaygroundStore from '@stores/playground';
 import Select from '../Select';
 import { PresetSet } from '@blocks/types';
@@ -36,20 +36,19 @@ const ControlPanel: React.FC = () => {
   };
 
   const highlightCode = (code: string, language: Language) => (
-    <Highlight {...defaultProps} Prism={Prism} code={code} theme={theme} language={language}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
+    <Highlight Prism={Prism} code={code} theme={theme} language={language}>
+      {({ tokens, getLineProps, getTokenProps }) => (
+        <>
           {tokens.map((line, i) => (
-            <Line key={i} {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              <LineContent>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </LineContent>
-            </Line>
+            // eslint-disable-next-line react/jsx-key
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                // eslint-disable-next-line react/jsx-key
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
           ))}
-        </Pre>
+        </>
       )}
     </Highlight>
   );
@@ -81,8 +80,13 @@ const ControlPanel: React.FC = () => {
         <Box maxHeight='80px'>
           <Editor
             value={playground.html}
+            padding={10}
             highlight={(code) => highlightCode(code, 'jsx')}
             onValueChange={(code) => playground.setHtml(code)}
+            style={{
+              background: '#000000',
+              caretColor: '#ffffff',
+            }}
           />
         </Box>
         <Box mt={10}>
@@ -95,8 +99,13 @@ const ControlPanel: React.FC = () => {
       <Box mt={20}>
         <Editor
           value={playground.styles}
+          padding={10}
           highlight={(code) => highlightCode(code, 'css')}
           onValueChange={(code) => playground.setStyles(code)}
+          style={{
+            background: '#000000',
+            caretColor: '#ffffff',
+          }}
         />
         <Box mt={10}>
           <button id='copy-css' onClick={handleCopy}>
