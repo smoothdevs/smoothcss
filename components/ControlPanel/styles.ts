@@ -17,13 +17,12 @@ const StyledEditor = styled.div<{ html: boolean }>`
   width: 100%;
   max-width: 100%;
 
-  height: 180px;
+  height: auto;
   max-height: 180px;
 
   ${({ html }) => css`
     ${html &&
     css`
-      height: 68px;
       max-height: 68px;
     `}
   `}
