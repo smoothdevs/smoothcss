@@ -10,6 +10,7 @@ const FABStyled = styled.div<{ open: boolean }>`
   text-align: center;
   font-size: 26px;
   cursor: pointer;
+  z-index: 100;
   * {
     vertical-align: text-top;
     transition: all 0.3s ease-out;
@@ -36,6 +37,7 @@ const FABDropdown = styled.div<{ open: boolean }>`
   color: #000000;
   background: #ffffff;
   padding: 10px;
+  z-index: 100;
   ${({ open }) => css`
     ${open &&
     css`
