@@ -12,6 +12,7 @@ import { PresetSet } from '@blocks/types';
 import Label from '../Label';
 import copyToClipboard from '@utils/copyUtil';
 import Toast from '@components/Toast';
+import Button from '@components/Button';
 
 const ControlPanel: React.FC = () => {
   const [toastProps, setToastProps] = useState({ open: false, content: '' });
@@ -94,10 +95,10 @@ const ControlPanel: React.FC = () => {
           </StyledEditor>
         </Box>
         <Box mt={10}>
-          <button id='copy-html' onClick={handleCopy}>
+          <Button id='copy-html' onClick={handleCopy}>
             <MdContentCopy />
             Copy HTML
-          </button>
+          </Button>
         </Box>
       </Box>
       <Box mt={20}>
@@ -111,10 +112,10 @@ const ControlPanel: React.FC = () => {
           />
         </StyledEditor>
         <Box mt={10}>
-          <button id='copy-css' onClick={handleCopy}>
+          <Button id='copy-css' onClick={handleCopy}>
             <MdContentCopy />
             Copy CSS
-          </button>
+          </Button>
         </Box>
       </Box>
       <Toast open={toastProps.open} content={toastProps.content} />

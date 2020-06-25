@@ -13,9 +13,6 @@ const css = `
     font-size: 24px;
     border: none;
 }
-.button:hover {
-    background: #27ae60;
-}
 `;
 
 const smooth: Preset = {
