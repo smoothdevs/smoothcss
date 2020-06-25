@@ -26,6 +26,7 @@ export enum PresetSet {
   MATERIAL_OUTLINED = 'material_outlined',
   ANTD = 'antd',
   BOOTSTRAP = 'bootstrap',
+  SEMANTIC = 'semantic',
 }
 
 export type PresetArray = {
