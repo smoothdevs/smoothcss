@@ -2,7 +2,7 @@ import { Preset } from '../types';
 
 const html = `
 <div class="card">
-    Button
+    Card
 </div>`;
 
 const css = `
