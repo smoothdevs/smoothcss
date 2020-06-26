@@ -18,7 +18,7 @@ const TitleBar: React.FC = () => {
           </Link>
         </Box>
         <Box width={1 / 10} textAlign='right' pr='10px'>
-          <a href='https://github.com/smoothdevs/smoothcss.com' target='_blank' rel='noreferrer'>
+          <a href='https://github.com/smoothdevs/smoothcss' target='_blank' rel='noreferrer'>
             <FaGithub fontSize='1.8rem' />
           </a>
         </Box>
